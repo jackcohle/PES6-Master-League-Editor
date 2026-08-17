@@ -40,7 +40,7 @@ The stable v1.0 table was validated against these two executables:
 
 Stable CT SHA-256:
 
-`345c927d4b5b09ee1f19b02575ac2c3b9d4526bb8ecbf76650c461cf89deee13`
+`ce9c35802e9a5aca2a29e2e273aa889eca41fcd30d75230796562fb3bfc44b1d`
 
 The executables are not byte-identical. Any new hook, call into an identified PES6 routine, or fixed module offset should therefore be revalidated on **both** tested builds before it is considered compatible.
 
