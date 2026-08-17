@@ -1241,7 +1241,7 @@ Bu, **PES6 Master League Editor'ın ilk kararlı genel sürümüdür**.
 v1.0; Player Editor, kadro toparlama araçları, Squad Ability Presets, Squad Fitness Overview, finans ve maç kontrollerini aynı doğrulanmış Master League kadrosu üzerinde çalışan tek bir Cheat Engine tablosunda birleştirir.
 
 **Kararlı CT SHA-256**  
-`345c927d4b5b09ee1f19b02575ac2c3b9d4526bb8ecbf76650c461cf89deee13`
+`ce9c35802e9a5aca2a29e2e273aa889eca41fcd30d75230796562fb3bfc44b1d`
 
 [↑ Başa dön](#top)
 
