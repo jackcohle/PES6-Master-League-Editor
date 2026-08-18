@@ -1,10 +1,10 @@
 <a id="top"></a>
 
-# PES6 Master League Editor v1.0
+# PES6 Master League Editor
 
 ### A comprehensive Cheat Engine editor for Pro Evolution Soccer 6 Master League
 
-**Version:** 1.0
+**Version:** 1.0.1
 **Author:** jackcohle  
 **Platform:** PC  
 **Requirements:** Cheat Engine + Pro Evolution Soccer 6  
@@ -23,8 +23,8 @@
 
 **Video / Demo:** `https://www.youtube.com/watch?v=as4FTyxqqKM`
 
-**SHA-256 — v1.0 stable CT**  
-`ce9c35802e9a5aca2a29e2e273aa889eca41fcd30d75230796562fb3bfc44b1d`
+**SHA-256 — v1.0.1 stable CT**  
+`488e5ab12777a24b8276aa1f712f0911f311a2a6660a96d5177fc1319d0efeb9`
 
 > Full documentation is provided below. Back up your Master League save before making permanent edits.
 
@@ -48,18 +48,20 @@
   - [9. Identity & Physical Profile](#9-identity)
   - [10. Fitness, Condition & Recovery](#10-fitness)
   - [11. Contract & Salary](#11-contract)
-  - [12. Squad Tools](#12-squad-tools)
-  - [13. Squad Ability Presets](#13-squad-presets)
-  - [14. Squad Fitness Overview](#14-fitness-overview)
-  - [15. Master League Settings](#15-ml-settings)
-  - [16. Club Finances](#16-finances)
-  - [17. Match Controls](#17-match-controls)
-  - [18. Score Controls](#18-score-controls)
-  - [19. Match Clock Controls](#19-match-clock)
-  - [20. Advanced Settings](#20-advanced)
-  - [21. Diagnostics — Read Only](#21-diagnostics)
+  - [12. Player Development](#12-player-development)
+  - [13. Squad Tools](#13-squad-tools)
+  - [14. Squad Ability Presets](#14-squad-presets)
+  - [15. Squad Fitness Overview](#15-fitness-overview)
+  - [16. Master League Settings](#16-ml-settings)
+  - [17. Club Finances](#17-finances)
+  - [18. Match Controls](#18-match-controls)
+  - [19. Score Controls](#19-score-controls)
+  - [20. Match Clock Controls](#20-match-clock)
+  - [21. Advanced Settings](#21-advanced)
+  - [22. Diagnostics — Read Only](#22-diagnostics)
 - [Permanent and Temporary Changes](#permanent-temporary)
 - [Safety](#safety)
+- [v1.0.1 — Player Development](#v101-release)
 - [v1.0 — First Public Release](#v10-release)
 - [Feature Summary](#feature-summary)
 - [License](#license)
@@ -79,6 +81,7 @@ The following major sections all use the same verified Master League roster:
 
 - Player Selector
 - Player Editor
+- Player Development
 - Squad Recovery
 - Squad Ability Presets
 - Squad Fitness Overview
@@ -93,7 +96,7 @@ The table also handles Master League players whose live ability data does not fo
 ---
 <a id="compatibility"></a>
 ## Compatibility & Tested Builds
-v1.0 was developed and runtime-tested on two different PES6 setups:
+v1.0.1 targets the same two PES6 setups used for development and runtime testing of v1.0:
 
 | Environment | Tested executable | Status |
 |---|---|---|
@@ -108,11 +111,11 @@ Both tested executables are **32-bit PE (x86)** files and are **21,880,832 bytes
 **SHA-256 — PES 6 Original Season**  
 `cd30427917be6a903ea4624147ca8506c7db5462a4a4e9f50ee8dd6c9d494628`
 
-> The SHA-256 values are provided only to identify the exact executables used during v1.0 testing. Your executable does not need to have the same filename or hash for the editor to work.
+> The SHA-256 values are provided only to identify the exact executables used during editor testing. Your executable does not need to have the same filename or hash for the editor to work.
 
 ### Patch compatibility
 
-v1.0 was developed with the goal of avoiding dependence on a single fixed PES6 setup.
+The editor was developed with the goal of avoiding dependence on a single fixed PES6 setup.
 
 Testing and validation are currently limited to **Standard / unpatched PES6** and **PES 6 Original Season**.
 
@@ -128,12 +131,12 @@ The core Player/Squad systems use runtime validation and recovery mechanisms whe
 1. Start PES6.
 2. Run Cheat Engine **as Administrator**.
 3. Attach Cheat Engine to `pes6.exe`.
-4. Open `PES6-Master-League-Editor-v1.0-by-jackcohle.CT`.
-5. Enable `[ACTIVATE] PES6 Master League Editor v1.0`.
+4. Open `PES6-Master-League-Editor-v1.0.1-by-jackcohle-FINAL.CT`.
+5. Enable `[ACTIVATE] PES6 Master League Editor v1.0.1`.
 6. Load your Master League save.
 7. Wait for the squad to be detected automatically.
 8. Use `Player Selector` before editing a single player.
-9. Use Player Editor or Squad Tools as needed.
+9. Use Player Editor, Player Development, or Squad Tools as needed.
 
 [↑ Back to top](#top)
 
@@ -171,6 +174,12 @@ After leaving Master League, **manually untick `[ACTIVATE]` and tick it again be
 ### Squad changes after transfers
 
 If the displayed roster is still the old one after a transfer, leave and re-enter the Master League screen so the current squad can be detected again. If you leave Master League completely, also perform the `[ACTIVATE]` reset described above.
+
+### Using Automatic Player Development
+
+**Automatic Player Development** can be enabled once for the current Master League session and left active. It adds age-based development EXP only to players who actually appear in the match. Starting XI players and substitutes who enter the match are included; unused substitutes are left untouched.
+
+When `[ACTIVATE]` is disabled, the development timer, breakpoint, and temporary session state are cleared together with the main editor reset. Player development already processed by PES6 after previous matches is not reverted.
 
 ### Pause before using match controls
 
@@ -809,8 +818,65 @@ Save Master League in-game to keep salary and contract changes.
 
 ---
 
-<a id="12-squad-tools"></a>
-### 12. Squad Tools
+<a id="12-player-development"></a>
+### 12. Player Development
+
+**Player Development** uses PES6's native post-match development system instead of directly forcing permanent ability values.
+
+#### Automatic Player Development
+
+Enable it once during the current Master League session and leave it active if desired.
+
+Only players who actually appear in the match receive the custom development EXP bonus:
+
+- Starting XI players
+- Substitutes who enter the match
+
+Unused substitutes are left untouched.
+
+| Age | Development EXP Bonus |
+|---|---:|
+| **17–21** | **+70 EXP** |
+| **22–25** | **+40 EXP** |
+| **26–30** | **+25 EXP** |
+| **31+** | **No custom bonus** |
+
+The bonus is **added on top of the player's existing development EXP**. Existing EXP is not reset, replaced with a fixed target, or reduced.
+
+PES6 performs the actual ability growth through its normal post-match development process. Because the EXP is cumulative, the same bonus does not guarantee the same direct ability increase for every player or every match; the result depends on the player's existing development EXP before the match.
+
+Automatic Player Development uses verified played-player information from the game, so only players who actually enter the match are targeted.
+
+When `[ACTIVATE]` is disabled:
+
+- The Automatic Development watcher is stopped.
+- The development breakpoint is removed.
+- The development timer is destroyed.
+- Temporary development session state is cleared.
+- Development status rows return to their initial state.
+
+Player growth already processed by PES6 after previous matches is not reverted by this reset.
+
+#### Manual Development Presets
+
+Optional manual development Actions are also available.
+
+**Selected Player**
+- High Development — Next Match
+- Peak Development — Next Match
+
+**Entire Squad**
+- High Development — Next Match
+- Peak Development — Next Match
+
+These presets do not change ability values immediately. They prepare development EXP before the match; a match must then be played so PES6 can process the resulting development through its normal post-match system.
+
+[↑ Back to top](#top)
+
+---
+
+<a id="13-squad-tools"></a>
+### 13. Squad Tools
 
 While Player Editor targets one player, **Squad Tools** applies actions to the entire detected Master League squad.
 
@@ -851,8 +917,8 @@ Squad Recovery uses the same detected roster map as Player Selector.
 [↑ Back to top](#top)
 
 ---
-<a id="13-squad-presets"></a>
-### 13. Squad Ability Presets
+<a id="14-squad-presets"></a>
+### 14. Squad Ability Presets
 
 Ability presets can be applied to the entire detected squad without selecting players one by one.
 
@@ -915,8 +981,8 @@ Squad Ability Presets use the same verified Master League roster as Player Selec
 
 ---
 
-<a id="14-fitness-overview"></a>
-### 14. Squad Fitness Overview
+<a id="15-fitness-overview"></a>
+### 15. Squad Fitness Overview
 
 A live squad view for monitoring fitness status in one place.
 
@@ -945,8 +1011,8 @@ This makes it easy to see which players are fully ready at a glance.
 [↑ Back to top](#top)
 
 ---
-<a id="15-ml-settings"></a>
-### 15. Master League Settings
+<a id="16-ml-settings"></a>
+### 16. Master League Settings
 
 Game, Master League and pre-match duration settings can be changed from the table.
 
@@ -1009,8 +1075,8 @@ These two match-time settings should only be used from the **Master League menu 
 
 ---
 
-<a id="16-finances"></a>
-### 16. Club Finances
+<a id="17-finances"></a>
+### 17. Club Finances
 
 Master League club funds can be edited.
 
@@ -1037,8 +1103,8 @@ To keep the funds change, save Master League normally in-game. If you exit witho
 [↑ Back to top](#top)
 
 ---
-<a id="17-match-controls"></a>
-### 17. Match Controls
+<a id="18-match-controls"></a>
+### 18. Match Controls
 
 A separate section provides controls that can be used during a running match.
 
@@ -1054,8 +1120,8 @@ The table detects whether the Master League team is currently Home or Away at ru
 
 ---
 
-<a id="18-score-controls"></a>
-### 18. Score Controls
+<a id="19-score-controls"></a>
+### 19. Score Controls
 
 Score Controls keep the scoreboard, native goal history and player match statistics synchronized.
 
@@ -1091,8 +1157,8 @@ Home/Away refers to scoreboard sides, not team names. **Add Home/Away Goal** can
 
 ---
 
-<a id="19-match-clock"></a>
-### 19. Match Clock Controls
+<a id="20-match-clock"></a>
+### 20. Match Clock Controls
 
 The three match-time controls work as one linked system:
 
@@ -1126,8 +1192,8 @@ Leaving/resetting the editor session releases Raw freeze state. After leaving Ma
 
 ---
 
-<a id="20-advanced"></a>
-### 20. Advanced Settings
+<a id="21-advanced"></a>
+### 21. Advanced Settings
 
 This section is not required for normal use and should normally be left at its default values.
 
@@ -1160,13 +1226,13 @@ Enables the older Master League-only mode validation for compatibility/troublesh
 
 ---
 
-<a id="21-diagnostics"></a>
-### 21. Diagnostics — Read Only
+<a id="22-diagnostics"></a>
+### 22. Diagnostics — Read Only
 
 Read-only technical information is available for troubleshooting and does not need to be edited during normal use.
 
 - **Last Resolver Player ID** — Shows the most recent Player ID reported by the live PES6 player resolver.
-- **Selected Player Record Address** — Shows the record currently used by Player Editor for the selected player.n.
+- **Selected Player Record Address** — Shows the record currently used by Player Editor for the selected player.
 - **Live Write Counter** — Shows how many live Player Editor write-back operations have occurred.
 - **Selected Contract Record Address** — Shows the current Master League contract-record address for the selected player.
 - **Requested Player ID** — Shows the Player ID expected for the requested Player Selector slot.
@@ -1192,6 +1258,7 @@ This distinction is important.
 - Pre-Match Stamina
 - Accumulated Fatigue
 - Shirt Number
+- Player Development progression processed by PES6 after matches
 
 ## Designed as temporary changes
 
@@ -1214,7 +1281,7 @@ Run Cheat Engine **as Administrator** before attaching to PES6.
 
 ### Master League session reset
 
-After leaving Master League, manually **untick `[ACTIVATE]` and tick it again before entering Master League again**. Automatic ML-exit detection is intentionally not used in v1.0; the manual reset is more predictable across the tested executables and patches.
+After leaving Master League, manually **untick `[ACTIVATE]` and tick it again before entering Master League again**. The manual reset is more predictable across the tested executables and patches. In v1.0.1 this reset also stops Automatic Player Development, removes its breakpoint, destroys its timer, and clears temporary development session state.
 
 ### Post-match and celebration protection
 
@@ -1234,6 +1301,7 @@ The following sections can change values that may be written into the Master Lea
 - Fitness
 - Condition
 - Shirt Number
+- Player Development progression processed by PES6 after matches
 
 Saving the game after entering an incorrect value may make that change persistent.
 
@@ -1254,6 +1322,50 @@ v1.0 combines Player Editor, squad recovery, squad presets, fitness overview, fi
 
 ---
 
+<a id="v101-release"></a>
+## v1.0.1 — Player Development
+
+v1.0.1 adds a new **Player Development** section built around PES6's native post-match development system.
+
+### New — Automatic Player Development
+
+Players who actually appear in a match can receive an age-based development EXP bonus:
+
+- **Age 17–21 → +70 EXP**
+- **Age 22–25 → +40 EXP**
+- **Age 26–30 → +25 EXP**
+- **Age 31+ → unchanged**
+
+The bonus is added to the player's existing development EXP rather than replacing it. Starting XI players and substitutes who enter the match are eligible; unused substitutes remain untouched.
+
+PES6 itself processes the resulting ability growth through its normal post-match development logic.
+
+### Manual Development Presets
+
+Optional development Actions are also available for the selected player or the entire squad:
+
+- High Development — Next Match
+- Peak Development — Next Match
+
+### Session Integration
+
+Disabling `[ACTIVATE]` now also integrates Player Development into the main editor reset:
+
+- Stops the Automatic Development watcher
+- Removes the development breakpoint
+- Destroys the development timer
+- Clears temporary development session state
+- Resets development status rows
+
+Player development already processed by PES6 is not reverted.
+
+**Stable CT SHA-256**  
+`488e5ab12777a24b8276aa1f712f0911f311a2a6660a96d5177fc1319d0efeb9`
+
+[↑ Back to top](#top)
+
+---
+
 <a id="feature-summary"></a>
 ## Feature Summary
 | Section | Includes |
@@ -1268,6 +1380,7 @@ v1.0 combines Player Editor, squad recovery, squad presets, fitness overview, fi
 | Identity & Physical | Height, weight, skin, age, nationality, shirt number |
 | Fitness & Recovery | Condition, stamina, fatigue + recovery Actions |
 | Contract & Salary | Salary and contract years |
+| Player Development | Age-based additive EXP for played players (+70/+40/+25) plus optional manual development presets |
 | ML Settings | Difficulty, transfer frequency, Native match time, Custom 3/7/12 minute time |
 | Squad Recovery | Full-squad fitness Actions |
 | Squad Ability Presets | Complete Boost, Ultimate by Position, 99, specials, performance, +5/+10/+15/+20, session persistence |
