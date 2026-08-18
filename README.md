@@ -4,7 +4,7 @@
 
 ### A comprehensive Cheat Engine editor for Pro Evolution Soccer 6 Master League
 
-**Version:** 1.0.1
+**Version:** 1.0.1  
 **Author:** jackcohle  
 **Platform:** PC  
 **Requirements:** Cheat Engine + Pro Evolution Soccer 6  
@@ -1323,7 +1323,7 @@ v1.0 combines Player Editor, squad recovery, squad presets, fitness overview, fi
 ---
 
 <a id="v101-release"></a>
-## v1.0.1 — Player Development
+## v1.0.1
 
 v1.0.1 adds a new **Player Development** section built around PES6's native post-match development system.
 
