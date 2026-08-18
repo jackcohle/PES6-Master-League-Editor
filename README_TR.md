@@ -1317,7 +1317,7 @@ v1.0; Player Editor, kadro toparlama araçları, Squad Ability Presets, Squad Fi
 ---
 
 <a id="v101-release"></a>
-## v1.0.1 — Player Development
+## v1.0.1
 
 v1.0.1, PES6'nın kendi maç sonu gelişim sistemini kullanan yeni **Player Development** bölümünü ekler.
 
