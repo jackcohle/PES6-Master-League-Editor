@@ -4,7 +4,7 @@
 
 ### Pro Evolution Soccer 6 Master League için kapsamlı Cheat Engine editörü
 
-**Sürüm:** 1.0.1  
+**Sürüm:** 1.0.2  
 **Yazar:** jackcohle  
 **Platform:** PC  
 **Gereksinim:** Cheat Engine + Pro Evolution Soccer 6  
@@ -21,17 +21,23 @@
 
 **[En güncel stabil sürümü indir](https://github.com/jackcohle/PES6-Master-League-Editor/releases/latest)**
 
-**Video / Tanıtım:** `https://www.youtube.com/watch?v=as4FTyxqqKM`
+**Video / Tanıtım:** **[youtube](https://www.youtube.com/watch?v=as4FTyxqqKM)**
 
-**SHA-256 — v1.0.1 kararlı CT**  
-`488e5ab12777a24b8276aa1f712f0911f311a2a6660a96d5177fc1319d0efeb9`
+**SHA-256 — v1.0.2 kararlı CT**  
+`ef91203b064d19b7dbbd0ead2d45d0551a9e1b2c67d836ec536804ddd60092ee`
 
 > Ayrıntılı açıklamalar aşağıdadır. Kalıcı değişiklikler yapmadan önce Master League kayıt dosyanızın yedeğini alın.
+
+> **v1.0.2:** Oyuncu seçimi, Restore ve Development düzeltmeleri için [sürüm notlarına](#v102-release) bakın.
 
 ![PES6 Master League Editor](assets/main.png)
 
 ---
 ## İçindekiler
+
+<details>
+<summary>Bölümleri göster</summary>
+
 - [Proje Hakkında](#proje-hakkinda)
 - [Uyumluluk ve Test Edilen Sürümler](#uyumluluk)
 - [Kurulum](#kurulum)
@@ -61,6 +67,7 @@
   - [22. Diagnostics — Read Only](#22-diagnostics)
 - [Kalıcı ve Geçici Değişiklikler](#kalici-gecici)
 - [Güvenlik](#guvenlik)
+- [v1.0.2 — Düzeltmeler ve İyileştirmeler](#v102-release)
 - [v1.0.1 — Player Development](#v101-release)
 - [v1.0 — İlk Kararlı Sürüm](#v10-release)
 - [İçerik Özeti](#icerik-ozeti)
@@ -69,10 +76,13 @@
 
 > GitHub masaüstü görünümünde başlıklardan oluşan **Outline** menüsünü de kullanabilirsiniz.
 
+</details>
+
 ---
 
 <a id="proje-hakkinda"></a>
 ## Proje Hakkında
+
 **PES6 Master League Editor**, Pro Evolution Soccer 6'nın Master League modu için hazırlanmış kapsamlı bir Cheat Engine tablosudur.
 
 Projenin temel amacı yalnızca birkaç değeri değiştiren klasik bir cheat table oluşturmak değil; Master League kadrosunu otomatik olarak algılayan, doğru oyuncuyu güvenli şekilde seçebilen ve oyuncu/takım verilerini tek bir arayüz altında yönetebilen bir **Master League editörü** oluşturmaktır.
@@ -96,7 +106,8 @@ Bazı Master League oyuncularının yetenek verileri standart oyuncu kaydından 
 ---
 <a id="uyumluluk"></a>
 ## Uyumluluk ve Test Edilen Sürümler
-v1.0.1, v1.0 ile aynı iki PES6 kurulumu hedeflenerek hazırlanmıştır:
+
+v1.0.2, aşağıdaki iki PES6 kurulumunu hedefler. Önceki sürümlerde test edilen oyun dosyaları referans olarak listelenmiştir:
 
 | Ortam | Test edilen oyun dosyası | Durum |
 |---|---|---|
@@ -128,11 +139,12 @@ Ana oyuncu ve kadro sistemleri gerektiğinde çalışma sırasında adresleri do
 ---
 <a id="kurulum"></a>
 ## Kurulum
+
 1. PES6'yı çalıştırın.
 2. Cheat Engine'i **Yönetici Olarak Çalıştırın**.
 3. Cheat Engine'i `pes6.exe` işlemine bağlayın.
-4. `PES6-Master-League-Editor-v1.0.1-by-jackcohle-FINAL.CT` dosyasını açın.
-5. `[ACTIVATE] PES6 Master League Editor v1.0.1` seçeneğini etkinleştirin.
+4. `PES6-Master-League-Editor-v1.0.2-by-jackcohle.CT` dosyasını açın.
+5. `[ACTIVATE] PES6 Master League Editor v1.0.2` seçeneğini etkinleştirin.
 6. Master League kayıt dosyanızı yükleyin.
 7. Takımın otomatik olarak algılanmasını bekleyin.
 8. Tek oyuncu düzenlemek için `Player Selector` bölümünden oyuncuyu seçin.
@@ -143,55 +155,22 @@ Ana oyuncu ve kadro sistemleri gerektiğinde çalışma sırasında adresleri do
 ---
 <a id="kullanim-notlari"></a>
 ## Önemli Kullanım Notları
-### Cheat Engine'i Yönetici Olarak Çalıştırın
 
-PES6'ya bağlanmadan önce Cheat Engine'i **Yönetici Olarak Çalıştır** seçeneğiyle başlatın. Özellikle oyun da yönetici yetkisiyle çalışıyorsa bu, bağlanma ve belleğe yazma sırasında oluşabilecek izin sorunlarını azaltır.
+- **Master League kaydınızın yedeğini alın** ve Cheat Engine'i Yönetici Olarak Çalıştırın.
+- Bireysel düzenlemelerden önce oyuncuyu **Player Selector** ile seçin. Maç sonrasında yeniden seçim yapmadan önce Master League menüsünün hazır olmasını bekleyin.
+- İlk **Squad Ability Preset** uygulaması birkaç saniye sürebilir. Onay mesajını bekleyin, ardından **My Team** üzerinden kontrol edin.
+- **Development:** Automatic'i Master League menüsünde açın ve maça girmeden önce **PRE-MATCH BASELINE / READY** durumunu bekleyin. Manuel presetler sıradaki tek maç içindir. Çalışan Development işleminin tikini kaldırarak durdurabilir, durum satırından kontrol edebilirsiniz.
+- Development açıkken doğrudan yetenek düzenlemelerini, Player Profiles ve yetenek değiştiren Squad presetlerini kullanmayın; gelişim hesaplarını etkileyebilirler.
+- Tamamlanan gelişimi oyun içindeki normal Master League kayıt menüsünden kaydedin. Doğrudan yetenek düzenlemeleri ve presetler geçicidir; Restore yedekleri mevcut editör oturumuna aittir.
+- Master League'den tamamen çıkınca yeniden girmeden önce **[ACTIVATE]** seçeneğini kapatıp açın. Transfer sonrası eski kadro görünüyorsa Master League ekranına yeniden girin.
+- Skor/süre işlemlerinden önce oyunu duraklatın. **Remaining Match Time (Raw) = 0** iken skor **Add / Remove / Reset** işlemleri engellenir. Eklenen golleri normal maç skorlarıyla sınırlı tutun.
 
-### Player Selector kullanın
-
-Tek bir oyuncuyu düzenlemeden önce oyuncuyu **Player Selector** üzerinden seçin. Player Editor ile yapılan oyuncu, kondisyon ve sözleşme düzenlemeleri doğrulanmış Master League kadrosuna göre çalışır.
-
-### Bazı oyuncularda ilk işlem kısa sürebilir
-
-Bazı Master League oyuncularının canlı yetenek kaydı standart düzenden farklı olabilir. Bu oyunculardan biri ilk kez seçildiğinde kısa bir doğrulama taraması yapılabilir. Doğru adres bulunduktan sonra sonuç önbelleğe alınır ve sonraki işlemler daha hızlı uygulanır.
-
-### Squad Ability Presets oturum boyunca korunur
-
-**Squad Ability Presets** geçicidir; ancak aynı Master League oturumu içindeki normal maç geçişlerinde seçili hazır ayar korunur. PES6 maçtan sonra takımın yetenek kayıtlarını yeniden oluşturursa hazır ayar yalnızca doğrulanmış kadro kayıtlarına tekrar uygulanır.
-
-Takımı hazır ayar uygulanmadan önceki değerlere döndürmek için **Restore Original Squad Ability Values** kullanılabilir.
-
-### Maç sonu ve şampiyonluk kutlaması güvenliği
-
-Hazır ayar sistemi, aynı Player ID ile sonradan ortaya çıkan her geçici kayda artık otomatik olarak yazmaz. Böylece şampiyonluk kutlaması veya ara sahne sırasında kullanılan geçici kayıtlar normal oyuncu kaydı sanılmaz. Bu değişiklik kutlama anındaki çökme sorununu önlerken normal maçlar arasındaki hazır ayar devamlılığını korur.
-
-Player Editor yazmaları da maç sonundaki güvenli olmayan geçişlerde geçici olarak durdurulur.
-
-### Master League'den çıkıp tekrar girerken
-
-Master League'den tamamen çıktıktan sonra yeniden girmeden önce **`[ACTIVATE]` işaretini kaldırıp tekrar etkinleştirin**. Bu işlem geçici oturum durumunu temizler ve yeni Master League girişinin temiz şekilde başlamasını sağlar.
-
-### Transfer sonrası kadro
-
-Transferden sonra eski kadro görünmeye devam ederse Master League ekranından çıkıp tekrar girin. Master League'den tamamen çıktıysanız yukarıdaki `[ACTIVATE]` sıfırlamasını da uygulayın.
-
-### Automatic Player Development kullanırken
-
-**Automatic Player Development** Master League oturumu içinde bir kez etkinleştirilip açık bırakılabilir. Sistem yalnızca maçta gerçekten süre alan oyunculara yaş grubuna göre ek development EXP uygular. İlk 11 oyuncuları ve oyuna giren yedekler dahil edilir; oyuna girmeyen yedeklere müdahale edilmez.
-
-`[ACTIVATE]` kapatıldığında development timer, breakpoint ve geçici oturum durumu da ana reset sistemiyle birlikte temizlenir. PES6 tarafından maç sonunda daha önce işlenmiş gerçek oyuncu gelişimleri geri alınmaz.
-
-### Match Controls kullanırken oyunu duraklatmak önerilir
-
-Skor veya kalan süre üzerinde değişiklik yapmadan önce oyunu duraklatmak daha güvenlidir. **Add Home Goal / Add Away Goal** maç içindeki ESC istatistik ekranlarında da kullanılabilir. **Remaining Match Time (Raw) = 0** iken **Add / Remove / Reset** kullanmayın; bu değer uzatma dakikaları ve devre/maç geçiş pencerelerinde de 0 olabilir ve Raw tekrar pozitif olana kadar işlemler engellenir.
-
-### Çok fazla yapay gol kaydı oluşturmayın
-
-PES6'nın gol geçmişi ekranları tek maçta onlarca yapay kayıt için tasarlanmamıştır. Normal maç skorlarında **Add Home Goal / Add Away Goal** kullanın. Add Goal gerçek bir golcü kaydı oluşturur ancak bilinçli olarak **asist oluşturmaz**. Remove Goal ve Reset ise native gol geçmişini yeniden kurar ve etkilenen gol/asist maç istatistiklerini senkronize eder.
+> **Restore:** Restore, yetenekleri bu oturumda ilk yedeklenen değerlere döndürür. Sonradan kazanılan gelişimler görünmez. Kazanılmış gelişimler, oyun yeniden açılıp yüklendiğinde görünecektir. Yeniden başlatmadan önce tamamlanan gelişimi oyun içinden kaydedin.
 
 [↑ Başa dön](#top)
 
 ---
+
 <a id="ana-ozellikler"></a>
 ## Ana Özellikler
 
@@ -240,6 +219,10 @@ yapısını kullanmaz.
 Böyle bir oyuncu ilk kez düzenlendiğinde tablo doğru canlı yetenek kaydını bulmak için kısa bir doğrulama taraması yapabilir.
 
 Doğru kayıt bulunduğunda adres güvenli biçimde önbelleğe alınır. Master League yeniden yüklendiğinde veya bellek düzeni değiştiğinde önbellekteki hedef artık geçerli değilse eski adres kullanılmaz; oyuncu yeniden doğrulanır.
+
+#### Restore Selected Player Ability Defaults
+
+**[STATUS] Selected Player** altındaki bu işlem, oyuncunun yeteneklerle ilgili orijinal ayarlarını geri yükler; pozisyonlar, Special Abilities ve performans ayarları da dahildir. Mevcutsa Squad presetlerinden önceki orijinal yedeği kullanır. Fitness, sözleşme veya kulüp bütçesi sıfırlama işlemi değildir.
 
 [↑ Başa dön](#top)
 
@@ -491,27 +474,35 @@ Yetenek sırası:
 `Attack / Defense / Body Balance / Stamina / Top Speed / Acceleration / Response / Agility / Dribble Accuracy / Dribble Speed / Short Pass Accuracy / Short Pass Speed / Long Pass Accuracy / Long Pass Speed / Shot Accuracy / Shot Power / Shot Technique / Free Kick Accuracy / Curling / Heading / Jump / Technique / Aggression / Mentality / Goal Keeping / Team Work`
 
 #### Elite Centre Forward
+
 `94, 45, 88, 84, 88, 91, 93, 87, 88, 87, 78, 79, 73, 76, 94, 91, 94, 75, 82, 90, 87, 90, 90, 86, 50, 82`
 
 #### Elite Playmaker
+
 `90, 55, 78, 86, 84, 88, 86, 92, 95, 91, 96, 90, 95, 90, 84, 86, 88, 94, 96, 65, 70, 96, 75, 88, 50, 96`
 
 #### Explosive Winger
+
 `89, 50, 74, 88, 97, 98, 86, 94, 93, 98, 86, 88, 91, 92, 84, 85, 86, 78, 91, 70, 75, 90, 84, 82, 50, 86`
 
 #### Complete Midfielder
+
 `86, 82, 84, 94, 85, 85, 89, 86, 88, 85, 93, 91, 91, 90, 84, 88, 85, 86, 88, 78, 82, 90, 85, 92, 50, 96`
 
 #### Defensive Midfielder
+
 `72, 94, 90, 94, 78, 76, 94, 76, 78, 74, 88, 86, 87, 85, 70, 84, 72, 68, 72, 84, 91, 82, 86, 95, 50, 94`
 
 #### World-Class Centre Back
+
 `60, 97, 96, 88, 79, 75, 96, 70, 70, 68, 79, 82, 84, 86, 60, 88, 62, 55, 60, 94, 97, 75, 88, 96, 50, 90`
 
 #### Elite Goalkeeper
+
 `45, 95, 90, 78, 65, 68, 97, 75, 55, 50, 72, 78, 78, 82, 45, 86, 50, 55, 60, 70, 88, 70, 55, 96, 99, 88`
 
 #### Elite Wonderkid
+
 `84, 70, 78, 86, 90, 92, 84, 90, 88, 91, 86, 84, 84, 85, 82, 84, 83, 78, 83, 76, 80, 88, 82, 84, 55, 86`
 
 ---
@@ -621,56 +612,67 @@ PES6'daki **23 Special Ability** özelliğinin her biri `Yes / No` ile ayrı ayr
 Oyuncunun 26 temel yeteneği dışında kalan performans ve stil ayarları da düzenlenebilir.
 
 #### Preferred Foot
+
 - Right / Left
 
 Oyuncunun ağırlıklı olarak hangi ayağını kullandığını belirler.
 
 #### Free Kick Style
+
 - Raw 0–15
 
 Free Kick Accuracy değerini değiştirmeden oyuncunun frikik animasyon/stil indeksini değiştirir.
 
 #### Penalty Kick Style
+
 - Style 1–8
 
 Oyuncunun penaltı vuruşu animasyon/stilini değiştirir.
 
 #### Dribbling Style
+
 - Style 1–4
 
 Oyuncunun top sürme animasyon/stilini değiştirir.
 
 #### Drop Kick Style
+
 - Style 1–4
 
 Kalecinin degaj animasyonunu ve stilini değiştirir.
 
 #### Registered Position
+
 12 PES6 pozisyonundan biri seçilebilir.
 
 PES6'nın oyuncu rolü ve kadro bilgileri için kullandığı ana mevkiyi belirler.
 
 #### Consistency
+
 - 1–8
 
 Oyuncunun maçtan maça ne kadar istikrarlı performans gösterdiğini etkiler.
 
 #### Condition
+
 - 1–8
 
 PES6'nın oyuncunun maçtan maça form eğilimi için kullandığı değeri belirler.
 
 #### Weak Foot Accuracy
+
 - 1–8
 
 Oyuncunun zayıf ayağını ne kadar isabetli kullanabildiğini belirler.
 
 #### Weak Foot Frequency
+
 - 1–8
 
 Oyuncunun zayıf ayağını kullanmaya ne kadar yatkın olduğunu belirler.
 
 #### Injury Tolerance
+
 - C
 - B
 - A
@@ -678,6 +680,7 @@ Oyuncunun zayıf ayağını kullanmaya ne kadar yatkın olduğunu belirler.
 Oyuncunun sakatlığa dayanıklılık seviyesini belirler.
 
 #### Favoured Side
+
 - Raw 0–3
 
 PES6'nın taraf/kanat tercihi için kullandığı ham değeri değiştirir.
@@ -692,30 +695,36 @@ PES6'nın taraf/kanat tercihi için kullandığı ham değeri değiştirir.
 Oyuncunun fiziksel ve kimlik bilgileri Player Editor içinden düzenlenebilir.
 
 #### Height
+
 148–211 cm
 
 Seçili oyuncunun kayıtlı boy değerini değiştirir.
 
 #### Weight
+
 Raw 0–127
 
 Kilogram göstermek yerine PES6'nın kodlanmış ağırlık değerini değiştirir.
 
 #### Skin Colour
+
 Raw 0–3
 
 PES6'nın kullandığı ham ten rengi kategorisini değiştirir.
 
 #### Age
+
 15–46
 
 Oyuncunun Master League içindeki kayıtlı yaş değerini desteklenen aralıkta değiştirir.
 
 #### Nationality
+
 Oyuncunun milliyetini orijinal PES6 ülke listesinden seçmeyi sağlar.
 Ham sayı kodları yerine ülke isimleri doğrudan gösterilir.
 
 #### Shirt Number
+
 1–99
 
 Seçili oyuncunun mevcut Master League kadro forma numarasını değiştirir.
@@ -744,11 +753,13 @@ Seçenekler:
 - Terrible
 
 #### Pre-Match Stamina
+
 0–100
 
 Seçili oyuncunun maç öncesi dayanıklılık seviyesini değiştirir.
 
 #### Accumulated Fatigue
+
 0–100
 
 Seçili oyuncunun birikmiş Master League yorgunluk değerini değiştirir.
@@ -818,55 +829,45 @@ Maaş ve sözleşme değişikliklerini korumak için Master League'i oyun içind
 <a id="12-player-development"></a>
 ### 12. Player Development
 
-**Player Development**, kalıcı yetenek değerlerini doğrudan zorlamak yerine PES6'nın kendi maç sonu gelişim sistemini kullanır.
+Player Development, PES6'nın normal maç sonu gelişim sisteminin işlemesi için EXP ekler. Kalıcı yetenek değerlerini anında değiştirmez.
 
 #### Automatic Player Development
 
-Master League oturumu sırasında bir kez etkinleştirilebilir ve açık bırakılabilir.
+Master League menüsünde etkinleştirin ve maça girmeden önce **PRE-MATCH BASELINE / READY** durumunu bekleyin. Sonraki maçlar için açık bırakabilirsiniz.
 
-Yalnızca maçta gerçekten süre alan oyuncular özel development EXP bonusu alır:
+Bonusu yalnızca maçta süre alan oyuncular korur; oyuna giren yedekler de dahildir. Kullanılmayan yedekler ek bonus almaz.
 
-- İlk 11 oyuncuları
-- Oyuna giren yedek oyuncular
-
-Oyuna girmeyen yedek oyunculara müdahale edilmez.
-
-| Yaş | Development EXP Bonusu |
+| Yaş | Ek gelişim EXP'si |
 |---|---:|
-| **17–21** | **+70 EXP** |
-| **22–25** | **+40 EXP** |
-| **26–30** | **+25 EXP** |
-| **31+** | **Müdahale yok** |
+| 17 yaş altı | Yaş grubu bonusu yok |
+| 17–21 | +70 EXP |
+| 22–25 | +40 EXP |
+| 26–30 | +25 EXP |
+| 31+ | Yaş grubu bonusu yok |
 
-Bonus, oyuncunun mevcut development EXP değerinin **üzerine eklenir**. Mevcut EXP sıfırlanmaz, sabit bir hedefe çekilmez veya azaltılmaz.
+Bonus mevcut EXP'nin üzerine eklenir. Yetenek artışı oyuncunun birikmiş EXP'sine ve PES6'nın maç sonu hesabına bağlıdır; EXP bonusu anında yetenek artışı garantilemez.
 
-Gerçek yetenek gelişimini PES6 kendi normal maç sonu development işlemi sırasında gerçekleştirir. Bu nedenle aynı EXP bonusu her oyuncuda veya her maçta doğrudan aynı miktarda ability artışı anlamına gelmez; sonuç oyuncunun maç öncesindeki mevcut development EXP durumuna bağlıdır.
+#### Manual Development — Next Match
 
-Automatic Player Development, oyunun doğrulanmış played-player bilgisini kullanır. Böylece yalnızca gerçekten maça giren oyuncular hedeflenir.
+**Selected Player** veya **Entire Squad** kapsamını seçip maçtan önce **High Development (+60 EXP)** ya da **Peak Development (+99 EXP)** uygulayın. Selected Player için önce oyuncuyu seçin.
 
-`[ACTIVATE]` kapatıldığında:
+Manual, sıradaki tek maç için geçerlidir; sonraki maçta yeniden etkinleştirilmelidir. Manual başlatılınca Automatic durur ve işlem sonrasında **OFF** kalır. Kullanmak istiyorsanız Automatic'i yeniden açın.
 
-- Automatic Development watcher durdurulur.
-- Development breakpoint kaldırılır.
-- Development timer temizlenir.
-- Geçici development oturum durumu sıfırlanır.
-- Development durum satırları başlangıç haline döner.
+#### Mevkiye göre bonus — Automatic ve Manual
 
-PES6 tarafından maç sonunda daha önce uygulanmış gerçek oyuncu gelişimleri bu reset işlemiyle geri alınmaz.
+Filtre **Registered Position** değerini kullanır ve yalnızca editörün eklediği EXP'yi etkiler:
 
-#### Manual Development Presets
+- **Saha oyuncuları:** Goal Keeping bonusu almaz.
+- **Kaleciler:** Attack, Shot Technique ve Free Kick Accuracy bonusu almaz. Shot Accuracy, Shot Power ve Curling dahildir.
+- Hariç tutulan yeteneklerde PES6'nın kendi doğal gelişimi korunur.
 
-İsteğe bağlı manuel development işlemleri de bulunur.
+#### Durdurma ve kaydetme
 
-**Selected Player**
-- High Development — Next Match
-- Peak Development — Next Match
+Çalışan Development işleminin tikini kaldırınca gelişim takibi durur ve durum **OFF** olur. Tamamlanmış Manual işleminin tikini kaldırınca da OFF gösterilir. Maç başlamadan önce kullanılmamış bonuslar güvenle doğrulanabildiği ölçüde iptal edilir; tamamlanan gelişim geri alınmaz. **[ACTIVATE]** kapatılınca da Development durur.
 
-**Entire Squad**
-- High Development — Next Match
-- Peak Development — Next Match
+Gelişim tamamlandıktan sonra Master League içinden kaydedin. Automatic sıradaki maçı beklerken, tamamlanan maçlar arasında kayıt yapılabilir.
 
-Bu presetler yetenek değerlerini anında değiştirmez. Development EXP durumunu maç öncesinde hazırlar; gerçek gelişimin işlenmesi için maç oynanması ve PES6'nın normal maç sonu development işlemini tamamlaması gerekir.
+> Development açıkken doğrudan yetenek düzenlemelerini, Player Profiles ve yetenek değiştiren Squad presetlerini kullanmayın. Restore sınırı için [Önemli Kullanım Notları](#kullanim-notlari) bölümüne bakın.
 
 [↑ Başa dön](#top)
 
@@ -919,6 +920,8 @@ Squad Recovery, Player Selector ile aynı doğrulanmış kadro listesini kullan�
 
 Tek tek oyuncu seçmeden algılanan Master League kadrosunun tamamına hazır ayar uygulanabilir.
 
+İlk uygulama birkaç saniye sürebilir. Onayı bekleyip **My Team** üzerinden kontrol edin. Başka bir Squad presetine geçmek önceki Squad işlemini değiştirir; aynı artışı tekrar tekrar üst üste eklemez.
+
 **Active Squad Preset** alanında seçili hazır ayarın adı, oyuncu sayacında ise işlem için doğrulanmış kaç kadro oyuncusu bulunduğu gösterilir.
 
 #### Complete Squad Boost
@@ -964,7 +967,7 @@ Her oyuncunun mevcut 26 yetenek değerine seçilen miktarı ekler ve sonuçları
 
 #### Restore Original Squad Ability Values
 
-Etkin hazır ayar uygulanmadan önce yakalanan takım yetenek değerlerini geri yükler.
+İlk Squad presetinden önce yedeklenen değerleri **Next** gerektirmeden geri yükler. Etkin bireysel Player Editor değişikliklerini korur; bunları da kaldırmak için **Restore Selected Player Ability Defaults** kullanın. Restore yedeği sonradan kazanılan gelişimle güncellenmez; [Restore uyarısını](#kullanim-notlari) okuyun.
 
 #### Oturum boyunca koruma ve kutlama güvenliği
 
@@ -1084,15 +1087,19 @@ Mevcut bütçe değerini doğrudan manuel olarak değiştirebilirsiniz.
 Hazır Actionlar:
 
 #### Add 10,000 Funds
+
 Mevcut bütçeye +10.000 ekler.
 
 #### Add 50,000 Funds
+
 +50.000 ekler.
 
 #### Add 100,000 Funds
+
 +100.000 ekler.
 
 #### Set Funds to 999,999
+
 Bütçeyi doğrudan 999.999 yapar.
 
 Funds değişikliğinin kalıcı olması için Master League'i oyun içinden kaydetmeniz gerekir. Kaydetmeden çıkılırsa değişiklik kaybolur.
@@ -1194,26 +1201,31 @@ Editör oturumu sıfırlandığında Remaining Match Time (Raw) üzerindeki dond
 Bu bölüm normal kullanım için gerekli değildir. Özel bir sorun çözmeye çalışmıyorsanız varsayılan değerlerde bırakmanız önerilir.
 
 #### Editor Runtime
+
 Varsayılan: **Enabled**
 
 Editörün ana çalışma döngüsünü açıp kapatır. Devre dışı bırakıldığında normal oyuncu/kadro algılama ve canlı güncelleme işlemleri durur.
 
 #### Auto-Follow Player Resolver
+
 Varsayılan: **Enabled**
 
 Player Selector ile bir oyuncu elle kilitlenmemişse Player Editor'ın PES6 tarafından o anda çözümlenen oyuncuyu otomatik olarak takip edip etmeyeceğini belirler.
 
 #### Instant Live Write-Back
+
 Varsayılan: **Enabled**
 
 Player Editor'da yapılan değişikliklerin seçili oyuncunun doğrulanmış canlı kaydına anında uygulanıp uygulanmayacağını belirler.
 
 #### Selection Stability Checks
+
 Varsayılan: **2 hits**
 
 1–10 arasında ayarlanabilir. Otomatik olarak bulunan oyuncunun hedef kabul edilmeden önce kaç kez üst üste aynı ve geçerli olarak görülmesi gerektiğini belirler.
 
 #### Legacy Master League Mode Check
+
 Varsayılan: **Disabled**
 
 Eski Master League doğrulama yöntemini uyumluluk ve sorun giderme amacıyla açar. Normal kullanımda gerekli değildir.
@@ -1241,6 +1253,7 @@ Bu bilgiler farklı PES6 oyun dosyalarını/yamalarını test ederken veya bekle
 ---
 <a id="kalici-gecici"></a>
 ## Kalıcı ve Geçici Değişiklikler
+
 Bu ayrım önemlidir.
 
 ## Master League oyun içinden kaydedildiğinde kalıcı olabilen değişiklikler
@@ -1269,13 +1282,14 @@ Bu ayrım önemlidir.
 ---
 <a id="guvenlik"></a>
 ## Güvenlik
+
 **Master League kayıt dosyanızın yedeğini almanız önemle önerilir.**
 
 PES6'ya bağlanmadan önce Cheat Engine'i **Yönetici Olarak Çalıştırın**.
 
 ### Master League oturumunu sıfırlama
 
-Master League'den tamamen çıktıktan sonra yeniden girmeden önce **`[ACTIVATE]` işaretini kaldırıp tekrar etkinleştirin**. Elle sıfırlama test edilen oyun dosyalarında daha öngörülebilir sonuç verdiği için tercih edilmiştir. v1.0.1'de bu işlem Automatic Player Development watcher, timer, breakpoint ve geçici development oturum durumunu da temizler.
+Master League'den tamamen çıktıktan sonra yeniden girmeden önce **`[ACTIVATE]` işaretini kaldırıp tekrar etkinleştirin**. Elle sıfırlama test edilen oyun dosyalarında daha öngörülebilir sonuç verdiği için tercih edilmiştir. Bu işlem Automatic ve Manual Development takibini durdurur ve geçici gelişim durumunu temizler.
 
 ### Maç sonu ve kutlama koruması
 
@@ -1305,6 +1319,7 @@ Yanlış bir değer girdikten sonra oyunu kaydetmek bu değişikliği kalıcı h
 
 <a id="v10-release"></a>
 ## v1.0 — İlk Kararlı Sürüm
+
 Bu, **PES6 Master League Editor'ın ilk kararlı genel sürümüdür**.
 
 v1.0; Player Editor, kadro toparlama araçları, Squad Ability Presets, Squad Fitness Overview, finans ve maç kontrollerini aynı doğrulanmış Master League kadrosu üzerinde çalışan tek bir Cheat Engine tablosunda birleştirir.
@@ -1358,12 +1373,28 @@ PES6 tarafından daha önce işlenmiş gerçek oyuncu gelişimleri geri alınmaz
 **Kararlı CT SHA-256**  
 `488e5ab12777a24b8276aa1f712f0911f311a2a6660a96d5177fc1319d0efeb9`
 
+---
+
+<a id="v102-release"></a>
+## v1.0.2 — Düzeltmeler ve İyileştirmeler
+
+- Player Selector, Squad presetleri ve tüm Development modlarında, yetenek değerleri birbirine karışabilen oyuncular dahil, doğru oyuncuya işlem yapılması düzeltildi.
+- Maç sonrasında oyuncuyu yeniden seçme ve düzenleme sorunları giderildi.
+- Squad Restore, **Next** gerektirmeden görünen yetenekleri günceller. Selected Player Restore, mevcutsa Squad presetlerinden önceki orijinal değerleri kullanır.
+- Automatic ve Manual Development performansı, mevkiye göre EXP filtresi ve **OFF** durumuyla işlem iptali iyileştirildi.
+- Bölümlerin açılıp kapanma sorunları giderildi; editörü açıp kapatırken oluşan gecikmeler azaltıldı.
+- Mesajlar sadeleştirildi, Restore ve ilk kullanım notları eklendi; geçici Development raporu kaldırıldı.
+
+**Kararlı CT SHA-256** 
+`ef91203b064d19b7dbbd0ead2d45d0551a9e1b2c67d836ec536804ddd60092ee`
+
 [↑ Başa dön](#top)
 
 ---
 
 <a id="icerik-ozeti"></a>
 ## İçerik Özeti
+
 | Bölüm | İçerik |
 |---|---|
 | Player Selector | Gerçek Master League kadrosundan tek oyuncu seçimi |
@@ -1406,4 +1437,5 @@ Copyright © 2026 **jackcohle**
 
 <a id="author"></a>
 ## Yazar
+
 **jackcohle**
